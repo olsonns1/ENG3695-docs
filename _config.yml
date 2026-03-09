@@ -1,2 +1,2 @@
-source: "src"
+source: "docs"
 exclude: [ "README.md" ]
