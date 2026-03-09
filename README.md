@@ -2,7 +2,7 @@
 
 This is the repository for our group's documentation website.
 
-The contents of our website are stored in the `main` branch.
+The contents of our website are stored in the `src` folder of the `main` branch.
 
 There may be a delay between when you push changes to `main` and when those changes become live on the web.
 
