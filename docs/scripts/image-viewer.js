@@ -1,10 +1,13 @@
 "use strict";
 
+const IMAGE_VIEWER_MODAL_ID = "image-viewer-modal";
 const IMAGE_VIEWER_CONTAINER_ID = "image-viewer-container";
 const IMAGE_VIEWER_IMAGE_ID = "image-viewer-img";
 const IMAGE_VIEWER_CLOSE_BUTTON_ID = "image-viewer-close-btn";
 const IMAGE_VIEWER_VIEW_BUTTON_CLASS = "image-viewer-view-btn";
 
+/** @type {HTMLDialogElement?} */
+let imageViewerModalElem = null;
 /** @type {HTMLElement?} */
 let imageViewerContainerElem = null;
 
@@ -15,13 +18,18 @@ document.addEventListener("DOMContentLoaded", initImageViewer);
  * manually.
  */
 function initImageViewer() {
-  // Container
-  imageViewerContainerElem = document.getElementById(IMAGE_VIEWER_CONTAINER_ID);
+  // Modal
+  imageViewerModalElem = document.getElementById(IMAGE_VIEWER_MODAL_ID);
 
-  if(!imageViewerContainerElem) {
+  if(!imageViewerModalElem) {
     return;
   }
 
+  // TODO prevent scrolling of document
+  // imageViewerModalElem.addEventListener("toggle", onImageViewerModalToggleEvent);
+
+  // Container
+  imageViewerContainerElem = document.getElementById(IMAGE_VIEWER_CONTAINER_ID);
   imageViewerContainerElem.addEventListener("click", onImageViewerContainerClickEvent);
 
   // Close button
@@ -40,17 +48,14 @@ function initImageViewer() {
  * Shows the image viewer.
  */
 function showImageViewer() {
-  // TODO prevent scrolling of document
-  imageViewerContainerElem.style.visibility = "initial";
-  document.body.addEventListener("keyup", onImageViewerKeyUpEvent);
+  imageViewerModalElem.showModal();
 }
 
 /**
  * Hides the image viewer.
  */
 function hideImageViewer() {
-  imageViewerContainerElem.style.visibility = "";
-  document.body.removeEventListener("keyup", onImageViewerKeyUpEvent);
+  imageViewerModalElem.close();
 }
 
 /**
@@ -76,15 +81,32 @@ function setImageViewerImage(extImgElem) {
 }
 
 /**
- * Handles a key-up event for the image viewer.
+ * Handles a toggle event for the image viewer modal.
  * 
- * @param {KeyboardEvent} event The key-up event.
+ * @param {ToggleEvent} event The toggle event.
  */
-function onImageViewerKeyUpEvent(event) {
-  if(event.key === "Escape") {
-    hideImageViewer();
-    event.stopImmediatePropagation();
+function onImageViewerModalToggleEvent(event) {
+  if(event.newState === "open") {
+    onImageViewerModalOpen();
+  } else if(event.newState === "closed") {
+    onImageViewerModalClose();
   }
+}
+
+/**
+ * Handles the opening of the image viewer modal.
+ */
+function onImageViewerModalOpen() {
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+}
+
+/**
+ * Handles the closing of the image viewer modal.
+ */
+function onImageViewerModalClose() {
+  document.documentElement.style.overflow = "";
+  document.body.style.overflow = "";
 }
 
 /**
