@@ -43,6 +43,7 @@ function initImageViewer() {
 function showImageViewer() {
   // TODO prevent scrolling of document
   imageViewerContainerElem.style.display = "initial";
+  document.body.addEventListener("keyup", onImageViewerKeyUpEvent);
 }
 
 /**
@@ -50,6 +51,7 @@ function showImageViewer() {
  */
 function hideImageViewer() {
   imageViewerContainerElem.style.display = "";
+  document.body.removeEventListener("keyup", onImageViewerKeyUpEvent);
 }
 
 /**
@@ -71,6 +73,18 @@ function setImageViewerImage(extImgElem) {
       default:
         ivImageElem.attributes.setNamedItem(attr.cloneNode());
     }
+  }
+}
+
+/**
+ * Handles a key-up event for the image viewer.
+ * 
+ * @param {KeyboardEvent} event The key-up event.
+ */
+function onImageViewerKeyUpEvent(event) {
+  if(event.key === "Escape") {
+    hideImageViewer();
+    event.stopImmediatePropagation();
   }
 }
 
