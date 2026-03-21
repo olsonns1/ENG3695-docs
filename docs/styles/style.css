@@ -108,13 +108,22 @@ body {
     min-width: 0.5in;
     min-height: 0.5in;
     aspect-ratio: 1/1;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     background-image: url("/images/ui/close.svg");
     background-position: center; /* TODO the X is not vertically centered */
     background-repeat: no-repeat;
     background-size: 55% 55%;
     border-radius: 0.5em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#image-viewer-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#image-viewer-close-btn:active {
+    background-color: rgba(0, 0, 0, 0.65);
 }
 
 .image-viewer-view-btn:hover {
