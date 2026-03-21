@@ -56,9 +56,12 @@ body {
 
 }
 
-
 .nav-menu a:hover {
     background-color: #34495e;
+}
+
+.nav-menu a:active {
+    background-color: #243342;
 }
 
 
