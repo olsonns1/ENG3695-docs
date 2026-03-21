@@ -22,7 +22,8 @@ function initImageViewer() {
     return;
   }
 
-  imageViewerContainerElem.addEventListener("click", onImageViewerContainerClickEvent);
+  // TODO close image viewer on click of container, but not image
+  // imageViewerContainerElem.addEventListener("click", onImageViewerContainerClickEvent);
 
   // Close button
   let closeBtn = document.getElementById(IMAGE_VIEWER_CLOSE_BUTTON_ID);
