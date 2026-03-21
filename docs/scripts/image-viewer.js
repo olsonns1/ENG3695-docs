@@ -67,17 +67,9 @@ function hideImageViewer() {
 function setImageViewerImage(extImgElem) {
   /** @type {HTMLImageElement} */
   let ivImageElem = document.getElementById(IMAGE_VIEWER_IMAGE_ID);
-  
-  for(let attr of extImgElem.attributes) {
-    switch(attr.name) {
-      case "id":
-      case "class":
-      case "style":
-        continue;
-      default:
-        ivImageElem.attributes.setNamedItem(attr.cloneNode());
-    }
-  }
+  ivImageElem.alt = extImgElem.alt;
+  ivImageElem.src = extImgElem.src;
+  ivImageElem.title = extImgElem.alt; // Original title may be something like "click to view"
 }
 
 /**
