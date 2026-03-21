@@ -22,8 +22,7 @@ function initImageViewer() {
     return;
   }
 
-  // TODO close image viewer on click of container, but not image
-  // imageViewerContainerElem.addEventListener("click", onImageViewerContainerClickEvent);
+  imageViewerContainerElem.addEventListener("click", onImageViewerContainerClickEvent);
 
   // Close button
   let closeBtn = document.getElementById(IMAGE_VIEWER_CLOSE_BUTTON_ID);
@@ -42,7 +41,7 @@ function initImageViewer() {
  */
 function showImageViewer() {
   // TODO prevent scrolling of document
-  imageViewerContainerElem.style.display = "initial";
+  imageViewerContainerElem.style.visibility = "initial";
   document.body.addEventListener("keyup", onImageViewerKeyUpEvent);
 }
 
@@ -50,7 +49,7 @@ function showImageViewer() {
  * Hides the image viewer.
  */
 function hideImageViewer() {
-  imageViewerContainerElem.style.display = "";
+  imageViewerContainerElem.style.visibility = "";
   document.body.removeEventListener("keyup", onImageViewerKeyUpEvent);
 }
 
@@ -94,7 +93,7 @@ function onImageViewerKeyUpEvent(event) {
  * @param {MouseEVent} event The click event.
  */
 function onImageViewerContainerClickEvent(event) {
-  if(event.currentTarget === imageViewerContainerElem) {
+  if(event.target === event.currentTarget) {
     hideImageViewer();
   }
 }
