@@ -101,18 +101,18 @@ body {
 }
 
 #image-viewer-close-btn {
-    /* TODO make this pretty */
     position: absolute;
     top: 0;
     right: 0;
-    margin: min(1vw, 1vh);
-    min-width: 2.5%;
-    min-height: 2.5%;
+    margin: 0.1in;
+    min-width: 0.5in;
+    min-height: 0.5in;
     aspect-ratio: 1/1;
     background-color: rgba(0, 0, 0, 0.6);
     background-image: url("/images/ui/close.svg");
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 55% 55%;
     border-radius: 0.5em;
     cursor: pointer;
 }
