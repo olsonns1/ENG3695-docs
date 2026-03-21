@@ -63,6 +63,7 @@ function setImageViewerImage(extImgElem) {
   
   for(let attr of extImgElem.attributes) {
     switch(attr.name) {
+      case "id":
       case "class":
       case "style":
         continue;
