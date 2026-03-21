@@ -104,7 +104,7 @@ function onImageViewerModalClose() {
 /**
  * Handles a mouse click event for the image viewer container.
  * 
- * @param {MouseEVent} event The click event.
+ * @param {MouseEvent} event The click event.
  */
 function onImageViewerContainerClickEvent(event) {
   if(event.target === event.currentTarget) {
@@ -115,7 +115,7 @@ function onImageViewerContainerClickEvent(event) {
 /**
  * Handles a mouse click event for the image close button.
  * 
- * @param {MouseEVent} event The click event.
+ * @param {MouseEvent} event The click event.
  */
 function onImageViewerCloseButtonClickEvent(event) {
   hideImageViewer();
@@ -124,7 +124,7 @@ function onImageViewerCloseButtonClickEvent(event) {
 /**
  * Handles a mouse click event for an image view button.
  * 
- * @param {MouseEVent} event The click event.
+ * @param {MouseEvent} event The click event.
  */
 function onImageViewerViewButtonClickEvent(event) {
   let imgElem = getImageViewerImageForViewButton(event.currentTarget);
