@@ -65,6 +65,26 @@ body {
 }
 
 
+.header-link-bounds:hover .header-link {
+    opacity: 100%;
+}
+
+.header-link {
+    color: #727279;
+    opacity: 60%;
+    font-size: 0.75em;
+    font-weight: lighter;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.header-link::before {
+    width: 1em;
+    height: 1em;
+    content: "#";
+}
+
+
 .main-content {
     flex: 1;
     margin-left: 250px;
@@ -388,5 +408,11 @@ body {
 
     .contact-info {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-contrast: more) {
+    .header-link {
+        opacity: 100%;
     }
 }
