@@ -110,7 +110,7 @@ body {
     aspect-ratio: 1/1;
     background-color: rgba(0, 0, 0, 0.6);
     background-image: url("/images/ui/close.svg");
-    background-position: center;
+    background-position: center; /* TODO the X is not vertically centered */
     background-repeat: no-repeat;
     background-size: 55% 55%;
     border-radius: 0.5em;
