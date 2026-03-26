@@ -66,6 +66,8 @@ function hideImageViewer() {
 function setImageViewerImage(extImgElem) {
   /** @type {HTMLImageElement} */
   let ivImageElem = document.getElementById(IMAGE_VIEWER_IMAGE_ID);
+  ivImageElem.src = ""; // Clear image during loading
+
   ivImageElem.alt = extImgElem.alt;
   ivImageElem.src = extImgElem.src;
   ivImageElem.title = extImgElem.alt; // Original title may be something like "click to view"
