@@ -4,7 +4,7 @@ const IMAGE_VIEWER_MODAL_ID = "image-viewer-modal";
 const IMAGE_VIEWER_CONTAINER_ID = "image-viewer-container";
 const IMAGE_VIEWER_IMAGE_ID = "image-viewer-img";
 const IMAGE_VIEWER_CLOSE_BUTTON_ID = "image-viewer-close-btn";
-const IMAGE_VIEWER_VIEW_BUTTON_CLASS = "image-viewer-view-btn";
+const IMAGE_VIEWER_EXPANDABLE_CLASS = "image-viewer-expandable";
 
 /** @type {HTMLDialogElement?} */
 let imageViewerModalElem = null;
@@ -35,11 +35,11 @@ function initImageViewer() {
   let closeBtn = document.getElementById(IMAGE_VIEWER_CLOSE_BUTTON_ID);
   closeBtn.addEventListener("click", onImageViewerCloseButtonClickEvent);
 
-  // View buttons
-  let viewBtns = document.getElementsByClassName(IMAGE_VIEWER_VIEW_BUTTON_CLASS);
+  // Expandables
+  let exps = document.getElementsByClassName(IMAGE_VIEWER_EXPANDABLE_CLASS);
 
-  for(let i = 0; i < viewBtns.length; i++) {
-    viewBtns[i].addEventListener("click", onImageViewerViewButtonClickEvent);
+  for(let i = 0; i < exps.length; i++) {
+    exps[i].addEventListener("click", onImageViewerExpandableClickEvent);
   }
 }
 
@@ -121,29 +121,23 @@ function onImageViewerCloseButtonClickEvent(event) {
 }
 
 /**
- * Handles a mouse click event for an image view button.
+ * Handles a mouse click event for an expandable image.
  * 
  * @param {MouseEvent} event The click event.
  */
-function onImageViewerViewButtonClickEvent(event) {
-  let imgElem = getImageViewerImageForViewButton(event.currentTarget);
+function onImageViewerExpandableClickEvent(event) {
+  let imgElem = getImageViewerImageForExpandable(event.currentTarget);
   setImageViewerImage(imgElem);
   showImageViewer();
 }
 
 /**
- * Finds the appropriate image for a given image view button.
+ * Finds the appropriate image for a given expandable image.
  * 
- * @param {HTMLElement} btnElem The image view button.
- * @returns {HTMLImageElement?} The image for the given view button, or null if
- * no such image could be found.
+ * @param {HTMLElement} exp The expandable image.
+ * @returns {HTMLImageElement?} The image for the given expandable image, or
+ * null if no such image could be found.
  */
-function getImageViewerImageForViewButton(btnElem) {
-  let imgElem = btnElem;
-
-  while(imgElem !== null && imgElem.tagName !== "IMG") {
-    imgElem = imgElem.parentElement;
-  }
-
-  return imgElem;
+function getImageViewerImageForExpandable(exp) {
+  return document.getElementById(exp.dataset.imageViewerFullImageId);
 }

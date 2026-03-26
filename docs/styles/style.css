@@ -112,6 +112,7 @@ body {
     object-fit: contain;
 }
 
+.image-viewer-view-btn,
 #image-viewer-close-btn {
     position: absolute;
     top: 0;
@@ -121,7 +122,6 @@ body {
     min-height: 0.5in;
     aspect-ratio: 1/1;
     background-color: rgba(0, 0, 0, 0.5);
-    background-image: url("/images/ui/close.svg");
     background-position: center; /* TODO the X is not vertically centered */
     background-repeat: no-repeat;
     background-size: 55% 55%;
@@ -130,15 +130,29 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.image-viewer-view-btn {
+    background-image: url("/images/ui/fullscreen.svg");
+}
+
+#image-viewer-close-btn {
+    background-image: url("/images/ui/close.svg");
+}
+
+.image-viewer-view-btn:hover,
 #image-viewer-close-btn:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+.image-viewer-view-btn:active,
 #image-viewer-close-btn:active {
     background-color: rgba(0, 0, 0, 0.65);
 }
 
-.image-viewer-view-btn:hover {
+.image-viewer-expandable {
+    position: relative;
+}
+
+.image-viewer-expandable:hover {
     cursor: pointer;
     outline: 3px solid #3498db;
     outline-offset: 2px;
@@ -268,6 +282,7 @@ body {
     color: #2c3e50;
 }
 
+.guide-step .image-viewer-expandable,
 .guide-step img {
     width: 100%;
     height: 200px;
@@ -462,6 +477,7 @@ body {
         margin-bottom: 20px;
     }
 
+    .guide-step .image-viewer-expandable,
     .guide-step img {
         height: 150px;
     }
