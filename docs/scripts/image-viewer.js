@@ -25,8 +25,7 @@ function initImageViewer() {
     return;
   }
 
-  // TODO prevent scrolling of document
-  // imageViewerModalElem.addEventListener("toggle", onImageViewerModalToggleEvent);
+  imageViewerModalElem.addEventListener("toggle", onImageViewerModalToggleEvent);
 
   // Container
   imageViewerContainerElem = document.getElementById(IMAGE_VIEWER_CONTAINER_ID);
