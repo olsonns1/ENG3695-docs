@@ -110,6 +110,8 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    color: white; /* For alt text if image fails to load */
+    font-size: 2rem; /* For alt text if image fails to load */
 }
 
 .image-viewer-view-btn,
