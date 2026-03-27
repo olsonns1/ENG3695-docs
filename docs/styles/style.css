@@ -124,7 +124,7 @@ body {
     min-height: 0.5in;
     aspect-ratio: 1/1;
     background-color: rgba(0, 0, 0, 0.5);
-    background-position: center; /* TODO the X is not vertically centered */
+    background-position: center;
     background-repeat: no-repeat;
     background-size: 55% 55%;
     border-radius: 0.5em;
@@ -133,11 +133,11 @@ body {
 }
 
 .image-viewer-view-btn {
-    background-image: url("/images/ui/fullscreen.svg");
+    background-image: url("../images/ui/fullscreen.svg");
 }
 
 #image-viewer-close-btn {
-    background-image: url("/images/ui/close.svg");
+    background-image: url("../images/ui/close.svg");
 }
 
 .image-viewer-view-btn:hover,
