@@ -16,6 +16,11 @@ body {
     scrollbar-gutter: stable;
 }
 
+ol,
+ul {
+  padding-inline-start: 20px;
+}
+
 .container {
     display: flex;
     min-height: 100vh;
@@ -40,6 +45,7 @@ body {
 
 .nav-menu ul {
     list-style: none;
+    padding-inline-start: 0; /* Undo tag-level style */
 }
 
 .nav-menu li {
@@ -430,10 +436,6 @@ body {
 .overview-box p {
     color: #555;
     line-height: 1.7;
-}
-
-.overview-box ul {
-  padding: 20px;
 }
 
 
