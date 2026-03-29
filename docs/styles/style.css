@@ -410,7 +410,7 @@ ul {
 }
 
 .home-overview {
-  margin: 3rem 0;
+  /* Padding set by children */
   margin-bottom: 30px;
 }
 
@@ -422,7 +422,7 @@ ul {
 .overview-box {
   flex: 1;
   background-color: white;
-  padding: 30px;
+  padding: 40px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -474,7 +474,8 @@ ul {
     .user-guide-section,
     .faq-section,
     .troubleshooting-section,
-    .contact-section {
+    .contact-section,
+    .overview-box {
         padding: 20px;
     }
 
@@ -493,6 +494,10 @@ ul {
     .guides {
         grid-template-columns: 1fr;
     }
+
+    .overview-container {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 480px) {
@@ -509,9 +514,19 @@ ul {
     .user-guide-section,
     .faq-section,
     .troubleshooting-section,
-    .contact-section {
-        padding: 15px;
+    .contact-section,
+    .home-overview {
         margin-bottom: 20px;
+    }
+
+    .title-card,
+    .description-section,
+    .user-guide-section,
+    .faq-section,
+    .troubleshooting-section,
+    .contact-section,
+    .overview-box {
+        padding: 15px;
     }
 
     .guide-step .image-viewer-expandable,
