@@ -83,6 +83,7 @@ ul {
     font-weight: lighter;
     font-style: italic;
     text-decoration: none;
+    transition: opacity 0.3s ease;
 }
 
 .header-link::before {
@@ -442,33 +443,51 @@ ul {
 
 
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
     .sidebar {
-        position: static;
+        position: fixed;
         width: 100%;
         height: auto;
-        padding: 10px;
+        padding: 15px 20px;
+        background-color: #2c3e50;
+    }
+
+    #home {
+        margin-top: 60px;
     }
 
     .nav-menu ul {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
+        justify-content: center;
     }
 
     .nav-menu li {
         margin: 0;
+        flex: 0 1 auto;
     }
 
     .nav-menu a {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 10px 16px;
+        font-size: 15px;
         background-color: #34495e;
         border-radius: 5px;
         text-align: center;
+        white-space: nowrap;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+        background-color: #3498db;
     }
 
     .main-content {
         margin-left: 0;
+        padding: 15px;
     }
 
     .title-card,
@@ -503,22 +522,61 @@ ul {
 }
 
 @media (max-width: 480px) {
+    .sidebar {
+        padding: 12px 15px;
+    }
+
+    .nav-menu ul {
+        gap: 6px;
+    }
+
+    .nav-menu a {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    #home {
+        margin-top: 100px;
+    }
+
+    .main-content {
+        padding: 12px;
+    }
+
     .title-image {
-        height: 200px;
+        height: 180px;
+    }
+
+    .title-card {
+        padding: 15px;
+        margin-bottom: 15px;
     }
 
     .title-card h1 {
-        font-size: 1.5em;
+        font-size: 1.4em;
+        margin-bottom: 8px;
     }
 
-    .title-card,
+    .subtitle {
+        font-size: 1em;
+    }
+
     .description-section,
     .user-guide-section,
     .faq-section,
     .troubleshooting-section,
-    .contact-section,
-    .home-overview {
-        margin-bottom: 20px;
+    .contact-section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .description-section h2,
+    .user-guide-section h2,
+    .faq-section h2,
+    .troubleshooting-section h2,
+    .contact-section h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
     }
 
     .title-card,
@@ -532,16 +590,31 @@ ul {
     }
 
     .description-image {
-        height: 200px;
+        height: 180px;
+    }
+
+    .guide-step {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .guide-step h3 {
+        font-size: 1.1em;
     }
 
     .guide-step .image-viewer-expandable,
     .guide-step img {
-        height: 150px;
+        height: 140px;
+        margin-bottom: 12px;
     }
 
     .contact-info {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .contact-item {
+        padding: 15px;
     }
 }
 
