@@ -481,6 +481,10 @@ body {
         margin-bottom: 20px;
     }
 
+    .description-image {
+        height: 200px;
+    }
+
     .guide-step .image-viewer-expandable,
     .guide-step img {
         height: 150px;
